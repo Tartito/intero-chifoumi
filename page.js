@@ -48,7 +48,6 @@ function playerChoice(choice) {
 
     // Calcul du score
     let result = calculateResult(choice, computerChoice);
-    scoreZone.textContent = 'Score: ' + score;
 
     if (result === 1) {
         score++;
@@ -59,6 +58,8 @@ function playerChoice(choice) {
     } else {
         alert('Égalité !');
     }
+    scoreZone.textContent = 'Score: ' + score;
+
 }
 
 function calculateResult(player, computer) {
