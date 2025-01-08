@@ -7,24 +7,26 @@
     <link rel="stylesheet" href="page.css">
 </head>
 <body>
-    <h1>Chifoumi - Pierre Feuille Ciseaux</h1>
-    
-    <!-- Zones d'affichage -->
-    <div class="zones">
-        <div id="playerChoice" class="zone"></div>
-        <div id="computerChoice" class="zone"></div>
-        <div id="score" class="zone">Score: 0</div>
-    </div>
+    <div class="container">
+        <h1>Chifoumi League</h1>
+        
+        <!-- Zones d'affichage -->
+        <div class="zones">
+            <div id="playerChoice" class="zone"></div>
+            <div id="computerChoice" class="zone"></div>
+            <div id="score" class="zone">Score: 0</div>
+        </div>
 
-    <!-- Choix du joueur -->
-    <div class="buttons">
-        <button onclick="playerChoice(1)">Pierre</button>
-        <button onclick="playerChoice(2)">Feuille</button>
-        <button onclick="playerChoice(3)">Ciseaux</button>
-    </div>
+        <!-- Choix du joueur -->
+        <div class="buttons">
+            <button onclick="playerChoice(1)">Pierre</button>
+            <button onclick="playerChoice(2)">Feuille</button>
+            <button onclick="playerChoice(3)">Ciseaux</button>
+        </div>
 
-    <!-- Bouton reset -->
-    <button class="reset-button" onclick="resetGame()">Réinitialiser</button>
+        <!-- Bouton reset -->
+        <button class="reset-button" onclick="resetGame()">Réinitialiser</button>
+    </div>
 
     <script src="page.js"></script>
 </body>

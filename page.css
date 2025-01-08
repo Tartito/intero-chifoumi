@@ -1,9 +1,18 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f0f0f0;
+    background: linear-gradient(to right, #ffcc00, #66cc66, #3399ff); /* Dégradé de fond */
     margin: 0;
     padding: 20px;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
 }
 
 h1 {
@@ -15,6 +24,7 @@ h1 {
     justify-content: center;
     margin-bottom: 20px;
 }
+
 .zone {
     width: 200px; /* Augmenter la largeur */
     height: 200px; /* Augmenter la hauteur */
@@ -23,12 +33,34 @@ h1 {
     align-items: center;
     justify-content: center;
     font-size: 20px;
-    color: rgb(0, 0, 0);
+    color: white;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     background-size: contain; /* Ajuster la taille de l'image */
     background-position: center; /* Centrer l'image */
     background-repeat: no-repeat; /* Ne pas répéter l'image */
+    transition: transform 0.3s, box-shadow 0.3s; /* Ajouter des transitions pour l'animation */
+}
+
+.zone:hover {
+    transform: scale(1.1); /* Agrandir légèrement au survol */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Ajouter une ombre plus grande au survol */
+}
+
+#playerChoice {
+    background-color: #ffcc00; /* Couleur jaune */
+}
+
+#computerChoice {
+    background-color: #66cc66; /* Couleur verte */
+}
+
+#score {
+    background-color: #3399ff; /* Couleur bleue */
+}
+
+.buttons {
+    margin-bottom: 20px;
 }
 
 button {
@@ -41,10 +73,12 @@ button {
     color: white;
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.3s; /* Ajouter des transitions pour l'animation */
 }
 
 button:hover {
     background-color: #555;
+    transform: scale(1.1); /* Agrandir légèrement au survol */
 }
 
 .reset-button {
