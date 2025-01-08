@@ -1,13 +1,16 @@
-
-let score = 0;
+let playerScore = 0;
+let computerScore = 0;
 
 function playerChoice(choice) {
+    const computerChoice = Math.floor(Math.random() * 3) + 1;
     const playerZone = document.getElementById('playerChoice');
     const computerZone = document.getElementById('computerChoice');
-    const scoreZone = document.getElementById('score');
 
     let playerSelection = '';
     let playerImage = '';
+    let computerSelection = '';
+    let computerImage = '';
+
     switch (choice) {
         case 1:
             playerSelection = 'Pierre';
@@ -22,13 +25,7 @@ function playerChoice(choice) {
             playerImage = 'ciseaux.jpg';
             break;
     }
-    playerZone.style.backgroundImage = `url(${playerImage})`;
-    playerZone.textContent = playerSelection;
 
-    // Choix aléatoire de l'ordinateur
-    let computerChoice = Math.floor(Math.random() * 3) + 1;
-    let computerSelection = '';
-    let computerImage = '';
     switch (computerChoice) {
         case 1:
             computerSelection = 'Pierre';
@@ -43,6 +40,9 @@ function playerChoice(choice) {
             computerImage = 'ciseaux.jpg';
             break;
     }
+
+    playerZone.style.backgroundImage = `url(${playerImage})`;
+    playerZone.textContent = playerSelection;
     computerZone.style.backgroundImage = `url(${computerImage})`;
     computerZone.textContent = computerSelection;
 
@@ -50,16 +50,18 @@ function playerChoice(choice) {
     let result = calculateResult(choice, computerChoice);
 
     if (result === 1) {
-        score++;
+        playerScore++;
         alert('Vous avez gagné !');
     } else if (result === -1) {
-        score--;
+        computerScore++;
         alert('Vous avez perdu !');
     } else {
         alert('Égalité !');
     }
-    scoreZone.textContent = 'Score: ' + score;
 
+    // Mise à jour de l'affichage des scores
+    document.getElementById('playerScore').textContent = 'Score Joueur: ' + playerScore;
+    document.getElementById('computerScore').textContent = 'Score Ordinateur: ' + computerScore;
 }
 
 function calculateResult(player, computer) {
@@ -78,14 +80,21 @@ function calculateResult(player, computer) {
 
 function resetGame() {
     // Réinitialisation du jeu
-    document.getElementById('playerChoice').style.backgroundImage = '';
-    document.getElementById('computerChoice').style.backgroundImage = '';
-    document.getElementById('playerChoice').textContent = '';
-    document.getElementById('computerChoice').textContent = '';
-    document.getElementById('score').textContent = 'Score: 0';
-    score = 0;
+    const playerChoiceElem = document.getElementById('playerChoice');
+    const computerChoiceElem = document.getElementById('computerChoice');
+    const playerScoreElem = document.getElementById('playerScore');
+    const computerScoreElem = document.getElementById('computerScore');
+
+    if (playerChoiceElem && computerChoiceElem && playerScoreElem && computerScoreElem) {
+        playerChoiceElem.style.backgroundImage = '';
+        computerChoiceElem.style.backgroundImage = '';
+        playerChoiceElem.textContent = '';
+        computerChoiceElem.textContent = '';
+        playerScoreElem.textContent = 'Score Joueur: 0';
+        computerScoreElem.textContent = 'Score Ordinateur: 0';
+        playerScore = 0;
+        computerScore = 0;
+    } else {
+        console.error('Un ou plusieurs éléments DOM sont introuvables.');
+    }
 }
-
-
-
-

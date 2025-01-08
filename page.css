@@ -55,8 +55,17 @@ h1 {
     background-color: #66cc66; /* Couleur verte */
 }
 
-#score {
-    background-color: #3399ff; /* Couleur bleue */
+.scores {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.score {
+    width: 200px;
+    margin: 0 10px;
+    font-size: 20px;
+    color: #333;
 }
 
 .buttons {
